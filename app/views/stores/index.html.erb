@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+<div class="categdespesas index">
+  <h2>Lojas </h2>
+  <%= form_tag stores_path( format:"html"), :method => 'get' do %>  
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="row">
+        <div class="col-lg-4  form-group">  
+          <%= text_field_tag :name, params[:name], :class => 'form-control', :placeholder=>"Nome da Loja" %>  
+        </div>
+        <div class="col-lg-4 form-group">
+          <%= submit_tag "Pesquisar", :class => "btn btn-primary" %>
+        </div>       
+        <div class="col-lg-2 form-group">  
+          <span class="input-group-btn" style="display: inline-block;"><button class="btn btn-primary" type="button" onclick="javascript: location.href='<%= new_store_path %>';"><i class="fa fa-plus-circle"></i> Nova Loja</button></span>
+        </div>
+      </div>
+    </div>
+  </div><br>
+  <%end%>
+      
+  <div class="table-responsive">
+    <table class="table table-hover table-striped" cellpadding="0" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Endereço</th>
+          <th>Ação</th>
+        </tr>        
+      </thead>
+      <tbody>
+        <% @stores.each do |store| %>
+          <tr>
+            <td><%= store.name %></td>
+            <td><%= store.address %></td>
+            <td>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle fas fa-settings" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-cog"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li class="dropdown-item"><a class="fas fa-plus"><%= link_to 'Adicionar Produto', new_stock_item_path(:store => store) %></a></li>
+                  <li class="dropdown-item"><a class="fas fa-list"><%= link_to 'Exibir Estoque', show_stock_stores_path(:store => store) %></a></li>
+                  <li class="dropdown-item"><a class="fas fa-file"><%= link_to 'Exibir', store %></a></li>
+                  <li class="dropdown-item"><a class="fas fa-edit"><%= link_to 'Editar', edit_store_path(store) %></a></li>
+                  <li class="dropdown-item"><a class="fas fa-trash"><%= link_to 'Deletar', store, method: :delete, data: { confirm: 'Deseja Deletar?' } %></a></li>
+                </ul>
+              </div>
+            <td>              
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+

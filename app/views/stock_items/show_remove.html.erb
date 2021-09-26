@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6">
+      <h2 class="page-header">
+        Estoque Adicionado
+      </h2>
+    </div>
+  </div>
+  <div class="curso form">
+    <div class="row">
+      <div class="col-lg-4 form-group">   
+        <label class = 'control-label'>Nome</label>
+        <input readonly="true" class = 'form-control' value="<%= @stock_item.store.name %>" />
+      </div>
+    </div>      
+    <div class="row">
+      <div class="col-lg-4 form-group">   
+        <label class = 'control-label'>Produto</label>
+        <input readonly="true" class = 'form-control' value="<%= @stock_item.product.name %>" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 form-group">   
+        <label class = 'control-label'>Quatindade Removida</label>
+        <input readonly="true" class = 'form-control' value="<%= @stock_remove %>" />
+      </div>
+    </div>  
+    <div class="row">
+      <div class="col-lg-4 form-group">   
+        <label class = 'control-label'>Quatindade Total</label>
+        <input readonly="true" class = 'form-control' value="<%= @stock_item.stock %>" />
+      </div>
+    </div>  
+    </div><br>             
+    
+    <div class="row">
+      <div class="col-lg-4 form-group">  
+        <%= link_to 'Voltar', stores_path, :class => "btn btn-primary"%>
+      </div>
+    </div>                    
+  </div>
+</div>
