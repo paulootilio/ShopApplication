@@ -15490,3 +15490,93 @@ Processing by StoresController#index as HTML
 Completed 200 OK in 73ms (Views: 69.3ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/stores" for ::1 at 2021-09-26 13:09:07 -0300
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT `stores`.* FROM `stores`[0m
+  Rendered stores/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 6951ms (Views: 6940.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2021-09-26 13:15:49 -0300
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (0.4ms)[0m  [1m[34mSELECT `stores`.* FROM `stores`[0m
+  Rendered stores/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 199ms (Views: 187.4ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for ::1 at 2021-09-26 13:15:50 -0300
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[35m (3.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mStore Load (0.6ms)[0m  [1m[34mSELECT `stores`.* FROM `stores`[0m
+  Rendered stores/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 83ms (Views: 75.5ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/stores" for ::1 at 2021-09-26 13:15:51 -0300
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (1.7ms)[0m  [1m[34mSELECT `stores`.* FROM `stores`[0m
+  Rendered stores/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 73ms (Views: 69.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/stock_items/new?store=1" for ::1 at 2021-09-26 13:15:56 -0300
+Processing by StockItemsController#new as HTML
+  Parameters: {"store"=>"1"}
+  [1m[36mStore Load (0.8ms)[0m  [1m[34mSELECT  `stores`.* FROM `stores` WHERE `stores`.`id` = 1 ORDER BY `stores`.`id` ASC LIMIT 1[0m
+  Rendering stock_items/new.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` ORDER BY `products`.`name` ASC[0m
+  Rendered stock_items/_form.html.erb (11.6ms)
+  Rendered stock_items/new.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 63ms (Views: 41.2ms | ActiveRecord: 5.7ms)
+
+
+Started POST "/stock_items" for ::1 at 2021-09-26 13:16:00 -0300
+Processing by StockItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"laTh9Z2KsxHl1nrqzxsG/kVeNTV6PRXBpEEBEIfgbg0y45pN8Rd50dCFj7nMlb/a1+6TDc4H8FbEpdupKYDMiQ==", "stock_item"=>{"store_id"=>"1", "product_id"=>"5", "stock"=>"4"}, "commit"=>"Adicionar"}
+  [1m[36mStockItem Load (1.5ms)[0m  [1m[34mSELECT  `stock_items`.* FROM `stock_items` WHERE `stock_items`.`product_id` = 5 AND `stock_items`.`store_id` = 1 ORDER BY `stock_items`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStore Load (0.4ms)[0m  [1m[34mSELECT  `stores`.* FROM `stores` WHERE `stores`.`id` = 1 LIMIT 1[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 5 LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE `stock_items` SET `stock` = 10, `updated_at` = '2021-09-26 16:16:00' WHERE `stock_items`.`id` = 7[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:5000/stock_items/7?product=5&stock_item=4&store=1
+Completed 302 Found in 26ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/stock_items/7?product=5&stock_item=4&store=1" for ::1 at 2021-09-26 13:16:00 -0300
+Processing by StockItemsController#show as HTML
+  Parameters: {"product"=>"5", "stock_item"=>"4", "store"=>"1", "id"=>"7"}
+  [1m[36mStockItem Load (0.7ms)[0m  [1m[34mSELECT  `stock_items`.* FROM `stock_items` INNER JOIN `stores` ON `stores`.`id` = `stock_items`.`store_id` INNER JOIN `products` ON `products`.`id` = `stock_items`.`product_id` WHERE `stock_items`.`store_id` = 1 AND `stock_items`.`product_id` = 5 ORDER BY `stock_items`.`id` ASC LIMIT 1[0m
+  Rendering stock_items/show.html.erb within layouts/application
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  `stores`.* FROM `stores` WHERE `stores`.`id` = 1 LIMIT 1[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 5 LIMIT 1[0m
+  Rendered stock_items/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 49ms (Views: 39.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/stores" for ::1 at 2021-09-26 13:16:01 -0300
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (1.5ms)[0m  [1m[34mSELECT `stores`.* FROM `stores`[0m
+  Rendered stores/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 78ms (Views: 72.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/stores" for ::1 at 2021-09-26 13:18:43 -0300
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (0.4ms)[0m  [1m[34mSELECT `stores`.* FROM `stores`[0m
+  Rendered stores/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 217ms (Views: 206.6ms | ActiveRecord: 2.7ms)
+
+

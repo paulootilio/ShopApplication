@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "stores#index"
   resources :stock_items, :path => "stock_items" do
     collection do
       get "/remove_product"  => "stock_items#remove_product", :as => "remove_product"
