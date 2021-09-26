@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: ShopApplication_production
-  username: ShopApplication
-  password: <%= ENV['SHOPAPPLICATION_DATABASE_PASSWORD'] %>
+  database: heroku_3d303a3775213c4
+  host: us-cdbr-east-04.cleardb.com
+  username: b9c20b64348d9c
+  password: b44e50c6
