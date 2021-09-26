@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20210924200359) do
 
-  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "description"
     t.float "price", limit: 24
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20210924200359) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "stock_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
+  create_table "stock_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "store_id"
     t.bigint "product_id"
     t.integer "stock"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20210924200359) do
     t.index ["store_id"], name: "index_stock_items_on_store_id"
   end
 
-  create_table "stores", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
+  create_table "stores", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "address"
     t.datetime "created_at", null: false

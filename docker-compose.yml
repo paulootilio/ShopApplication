@@ -1,0 +1,20 @@
+version: "2.2"
+services:
+  myapp:
+    build: .
+    depends_on:
+      - mysql
+    command: bundle exec rails server -p 5000 -b '0.0.0.0'
+    volumes:
+      - .:/myapp
+    ports:
+      - "5000:5000" 
+  mysql:
+    image: mysql:5.7
+    platform: linux/x86_64
+    ports:
+      - "3306:3306" 
+    environment:
+      MYSQL_DATABASE: shop_applicationdb
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: 12345678

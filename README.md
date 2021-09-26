@@ -1,24 +1,29 @@
-# README
+Sobre
+========
+ShopApplication é uma aplicação para controle de estoque de produtos
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<!-- Requisitos -->
+## :books: Requisitos
+- Ter [**Git**](https://git-scm.com/) para clonar o projeto.
+- Ter [**Docker**](https://www.docker.com/) para rodar o projeto.
 
-Things you may want to cover:
+<!-- Começando -->
+## :gear: Começando
 
-* Ruby version
+instruções sobre como configurar o projeto localmente.
+```bash
+# Entrar no diretório da aplicação:
+  $ cd ShopApplication
 
-* System dependencies
+  # Subir containers:
+  $ docker-compose up -d
 
-* Configuration
+  # Criar o banco e rodar as migrations:
+  $ docker-compose run myapp bundle exec rake db:create db:migrate
 
-* Database creation
+  # Rodar a aplicação:
+  $ docker-compose up
+```
+Acessar aplicação: [**localhost:5000**](http://localhost:5000/)
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Feito por Paulo Otilio 👋🏻 [Get in touch!](https://github.com/paulootilio)
