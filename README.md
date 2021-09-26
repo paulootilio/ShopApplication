@@ -19,7 +19,7 @@ instruções sobre como configurar o projeto localmente.
   $ docker-compose up -d
 
   # Criar o banco e rodar as migrations:
-  $ docker-compose run myapp bundle exec rake db:create db:migrate
+  $ docker-compose run myapp bundle exec rake db:create db:migrate db:seed
 
   # Rodar a aplicação:
   $ docker-compose up
